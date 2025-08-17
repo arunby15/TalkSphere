@@ -6,7 +6,7 @@ import io from "socket.io-client";
 
 const BASE_URL = import.meta.env.MODE === "development"
   ? "http://localhost:5003"
-  : "https://fullstack-backend-en6u.onrender.com";  // <-- changed here
+  : "https://talksphere-backend-8684.onrender.com";  // <-- changed here
 
 export const useAuthStore = create((set, get) => ({
   authUser: null,

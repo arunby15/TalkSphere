@@ -7,7 +7,7 @@ const server = http.createServer(app);
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://chat-app-ten-mu-77.vercel.app"
+  "https://talk-sphere-virid.vercel.app/"
 ];
 
 const io = new Server(server, {
