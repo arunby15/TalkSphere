@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 import { connectDB } from "./lib/db.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import { app, io, server } from "./lib/socket.js";  // fixed path
+import { app, io, server } from "./lib/socket.js"; // fixed path
 
 dotenv.config();
 
@@ -25,15 +25,17 @@ const corsOptions = {
       return callback(null, true);
     }
 
-    if (/^https?:\/\/[\w.-]+\.vercel\.app\/?$/.test(origin)) {
+    if (/^https:\/\/talk-sphere-[\w-]+\.vercel\.app$/.test(origin)) {
       return callback(null, true);
     }
 
-    return callback(new Error("CORS policy: This origin is not allowed."), false);
+    return callback(
+      new Error("CORS policy: This origin is not allowed."),
+      false
+    );
   },
   credentials: true,
 };
-
 
 app.use(cors(corsOptions));
 app.options("*", cors(corsOptions)); // handle preflight requests
@@ -41,7 +43,6 @@ app.options("*", cors(corsOptions)); // handle preflight requests
 app.use(cookieParser());
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ limit: "10mb", extended: true }));
-
 
 // API routes
 app.use("/api/auth", authRouters);
