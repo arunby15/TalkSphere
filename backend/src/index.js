@@ -18,7 +18,7 @@ const corsOptions = {
 
     const allowedOrigins = [
       "http://localhost:5173",
-      "https://chat-app-ten-mu-77.vercel.app",
+      "https://talk-sphere-virid.vercel.app/",
     ];
 
     if (!origin || allowedOrigins.includes(origin)) {

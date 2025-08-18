@@ -3,38 +3,37 @@ import { FaLinkedin, FaInstagram, FaGithub } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 text-white py-6 mt-10">
-      <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+    // KEY CHANGE: Added `sticky bottom-0 z-10`
+    // - `sticky`: Makes the footer stick to the bottom of the viewport.
+    // - `bottom-0`: Positions it at the very bottom.
+    // - `z-10`: Ensures it stays on top of other content.
+    <footer className="sticky bottom-0 z-10 bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 text-white py-3">
+      <div className="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-between">
         
-        {/* Left Section */}
-        <div className="mb-4 md:mb-0 text-center md:text-left">
-          <h2 className="text-lg font-semibold">TalkSphere</h2>
-          <p className="text-sm">Learn, Share & Grow Together</p>
+        <div className="mb-2 sm:mb-0 text-center sm:text-left">
+          <h2 className="text-md font-semibold">TalkSphere</h2>
+          <p className="text-xs">Learn, Share & Grow Together</p>
         </div>
 
-        {/* Middle Section - Links */}
-        <div className="flex space-x-6 text-sm">
-          <a href="/about" className="hover:underline">About Us</a>
-          <a href="/contact" className="hover:underline">Contact</a>
+        <div className="text-center text-xs text-gray-200 my-2 sm:my-0">
+          <div className="flex space-x-6 text-sm mb-2 justify-center">
+            <a href="/about" className="hover:underline">About Us</a>
+            <a href="/contact" className="hover:underline">Contact</a>
+          </div>
+          © {new Date().getFullYear()} TalkSphere – A Global Chatting Vibe. All rights reserved.
         </div>
 
-        {/* Right Section - Socials */}
-        <div className="flex space-x-5 mt-4 md:mt-0">
+        <div className="flex space-x-4 mt-2 sm:mt-0">
           <a href="https://www.linkedin.com/in/arun-by/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200">
-            <FaLinkedin size={22} />
+            <FaLinkedin size={20} />
           </a>
           <a href="https://www.instagram.com/arun_bavimane_15/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200">
-            <FaInstagram size={22} />
+            <FaInstagram size={20} />
           </a>
           <a href="https://github.com/arunby15" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200">
-            <FaGithub size={22} />
+            <FaGithub size={20} />
           </a>
         </div>
-      </div>
-
-      {/* Bottom Section */}
-      <div className="mt-6 text-center text-xs text-gray-200">
-        © {new Date().getFullYear()} TalkSphere – A Global Chatting Vibe. All rights reserved..
       </div>
     </footer>
   );
